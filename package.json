@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "esbuild": "^0.14.25",
+    "serverless-esbuild": "^1.25.0"
+  },
+  "name": "auction-service",
+  "dependencies": {
+    "@serverless/typescript": "^3.38.0",
+    "aws-lambda": "^1.0.7"
+  }
+}

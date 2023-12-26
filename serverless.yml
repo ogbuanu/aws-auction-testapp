@@ -1,0 +1,39 @@
+service: auction-service
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  memorySize: 256
+  stage: "dev"
+  region: eu-west-1
+
+functions:
+  getAuctions:
+    handler: src/handlers/getAuctions.handler
+    events:
+      - http:
+          path: /get-auctions
+          method: GET
+
+  getAuction:
+    handler: src/handlers/getAuction.handler
+    events:
+      - http:
+          path: /get-auction/{id}
+          method: GET
+  editAuction:
+    handler: src/handlers/editAuction.handler
+    events:
+      - http:
+          path: /edit-auction/{id}
+          method: PATCH
+  deleteAuction:
+    handler: src/handlers/deleteAuction.handler
+    events:
+      - http:
+          path: /delete-auction/{id}
+          method: DELETE
+
+plugins:
+  - serverless-esbuild
